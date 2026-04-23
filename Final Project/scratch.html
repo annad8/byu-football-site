@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BYU Football | Scratch Page</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="site-body">
+  <header class="site-header">
+    <div class="page-wrap">
+      <h1 class="brand brand-pop">BYU Football</h1>
+      <p class="tagline">Official fan hub</p>
+      <nav class="top-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="roster.html">Roster</a>
+        <a href="scratch.html" class="active">Media Page</a>
+        <a href="app.html">Trivia</a>
+        <a href="resume.html">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-wrap">
+      <section class="panel scratch-panel" id="top">
+        <h2 class="section-title">Fan Page</h2>
+
+        <div class="media-list-wrap">
+          <ol class="media-ol">
+            <li>Best Parts of BYU Football
+              <ul class="media-ul">
+                <li>Electric game-day atmosphere</li>
+                <li>Team-first culture</li>
+                <li>Loyal Cougar fan base</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+
+        <h3 class="scratch-subtitle">BYU Football Highlights</h3>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/iiTsZKw6Q2w" title="BYU Football Hype Video" allowfullscreen></iframe>
+
+        <h3 class="scratch-subtitle">LaVell Edwards Stadium</h3>
+        <img src="https://byucougars.com/imgproxy/_mV8pKuqwgifu2-KJ0KiJf1uZrM9WspMgCzrp7r59xk/rs:fit:1980:0:0:0/g:ce:0:0/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2J5dWNvdWdhcnMtcHJvZC8yMDIzLzEwLzIyL3JyWTl2RFNBY0JkaXlWUEZ2dm1pZzhsdDRseUZsOFEwS05KZmpxaGMuanBn.jpg" alt="LaVell Edwards Stadium" width="700">
+
+        <p><a href="#top">Back to Top</a></p>
+
+        <div class="box1">BYU has one of the best atmospheres in college football.</div>
+        <div class="box2">The traditions and fans make every game exciting.</div>
+        <div class="box3">Game days in Provo are unforgettable.</div>
+
+        <h3 class="scratch-subtitle">BYU Football Data Visualization</h3>
+        <div class="viz-center">
+          <div class="tableauPlaceholder" id="byuTableauViz">
+            <noscript>
+              <a href="#">
+                <img
+                  alt="BYU Football Tableau"
+                  src="https://public.tableau.com/static/images/AH/AHistoryofBYUFootball/BYUFootball/1_rss.png"
+                  style="border: none;"
+                >
+              </a>
+            </noscript>
+            <object class="tableauViz" style="display:none;">
+              <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F">
+              <param name="embed_code_version" value="3">
+              <param name="site_root" value="">
+              <param name="name" value="AHistoryofBYUFootball/BYUFootball">
+              <param name="width" value="1100">
+              <param name="height" value="980">
+              <param name="tabs" value="no">
+              <param name="toolbar" value="yes">
+              <param name="showVizHome" value="no">
+            </object>
+          </div>
+        </div>
+        <script src="https://public.tableau.com/javascripts/api/viz_v1.js"></script>
+        <script>
+          function centerByuViz() {
+            var wrap = document.getElementById("byuTableauViz");
+            if (!wrap) return;
+            var iframe = wrap.querySelector("iframe");
+            var obj = wrap.querySelector("object");
+            if (obj) {
+              obj.style.display = "block";
+              obj.style.margin = "0 auto";
+            }
+            if (iframe) {
+              iframe.style.width = "1100px";
+              iframe.style.maxWidth = "94vw";
+              iframe.style.margin = "0 auto";
+              iframe.style.display = "block";
+            }
+          }
+
+          window.addEventListener("load", function () {
+            centerByuViz();
+            setTimeout(centerByuViz, 700);
+            setTimeout(centerByuViz, 1400);
+          });
+        </script>
+
+        <p>
+          <a href="index.html">Back to Professional Pages</a>
+          <a href="app.html">Go to App</a>
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-wrap">
+      <p>BYU Football class project site.</p>
+    </div>
+  </footer>
+</body>
+</html>

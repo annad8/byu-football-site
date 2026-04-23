@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BYU Football | Trivia App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="site-body">
+  <header class="site-header">
+    <div class="page-wrap">
+      <h1 class="brand brand-pop">BYU Football</h1>
+      <p class="tagline">Official fan hub</p>
+      <nav class="top-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="roster.html">Roster</a>
+        <a href="scratch.html">Media Page</a>
+        <a href="app.html" class="active">Trivia</a>
+        <a href="resume.html">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-wrap">
+      <section class="panel quiz-card">
+        <h2 class="section-title">BYU Football Trivia</h2>
+        <p>Select one answer for each question. Your score updates in real time.</p>
+
+        <div class="question" data-answer="C">
+          <p>1. Who was BYU's quarterback during their 1984 national championship season?</p>
+          <div class="options">
+            <button>A. Ty Detmer</button>
+            <button>B. Jim McMahon</button>
+            <button>C. Robbie Bosco</button>
+          </div>
+          <p class="feedback"></p>
+        </div>
+
+        <div class="question" data-answer="B">
+          <p>2. What conference did BYU belong to during most of the LaVell Edwards era?</p>
+          <div class="options">
+            <button>A. Mountain West</button>
+            <button>B. WAC</button>
+            <button>C. Pac-10</button>
+          </div>
+          <p class="feedback"></p>
+        </div>
+
+        <div class="question" data-answer="B">
+          <p>3. What is the elevation of LaVell Edwards Stadium (approx.)?</p>
+          <div class="options">
+            <button>A. 2,500 ft</button>
+            <button>B. 4,500 ft</button>
+            <button>C. 6,500 ft</button>
+          </div>
+          <p class="feedback"></p>
+        </div>
+
+        <div class="question" data-answer="B">
+          <p>4. Who is BYU's all-time leading passer?</p>
+          <div class="options">
+            <button>A. Zach Wilson</button>
+            <button>B. Ty Detmer</button>
+            <button>C. Taysom Hill</button>
+          </div>
+          <p class="feedback"></p>
+        </div>
+
+        <div class="scoreboard">Score: <span id="score">0</span> / <span id="total">4</span></div>
+
+        <p class="app-links">
+          <a href="scratch.html">Back to Scratch Page</a>
+          <a href="index.html">Back to Main Site</a>
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-wrap">
+      <p>BYU Football class project site.</p>
+    </div>
+  </footer>
+
+  <script>
+    const questions = document.querySelectorAll('.question');
+    const scoreEl = document.getElementById('score');
+    const totalEl = document.getElementById('total');
+    totalEl.textContent = String(questions.length);
+
+    function updateScore() {
+      let score = 0;
+      questions.forEach((question) => {
+        if (question.dataset.correct === 'true') {
+          score += 1;
+        }
+      });
+      scoreEl.textContent = String(score);
+    }
+
+    questions.forEach((question) => {
+      const correctLetter = question.dataset.answer;
+      const buttons = question.querySelectorAll('button');
+      const feedback = question.querySelector('.feedback');
+
+      buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const selectedLetter = button.textContent.trim().charAt(0);
+          const isCorrect = selectedLetter === correctLetter;
+
+          buttons.forEach((btn) => {
+            btn.disabled = true;
+            btn.style.opacity = '0.72';
+          });
+
+          button.style.opacity = '1';
+          button.style.borderColor = isCorrect ? '#168548' : '#b42318';
+          button.style.background = isCorrect ? '#e9f9ef' : '#ffeceb';
+
+          question.dataset.correct = isCorrect ? 'true' : 'false';
+          feedback.textContent = isCorrect ? 'Correct!' : 'Not quite. Keep going!';
+          feedback.style.color = isCorrect ? '#146c3d' : '#9e1c14';
+
+          updateScore();
+        });
+      });
+    });
+  </script>
+</body>
+</html>
